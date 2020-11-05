@@ -1,6 +1,8 @@
 import mongoose from "mongoose";
+// mongoose를 통해 데이터들을 모델안에서 Lecture를 조회
 
 const Schema = mongoose.Schema;
+// mongoose.Schema 를 Schema 안에 넣는다.
 
 const Lecture = new Schema(
   {
@@ -32,3 +34,4 @@ const Lecture = new Schema(
 // 여기에 없는 녀석들은 조회 불가능
 
 export default mongoose.model(`Lecture`, Lecture, `Lecture`);
+// export default를 하여 외부에서도 사용 가능하게 만들어준다.
