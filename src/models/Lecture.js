@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 const Schema = mongoose.Schema;
 
-const Lcture = new Schema(
+const Lecture = new Schema(
   {
     name: {
       type: String,
@@ -30,3 +30,5 @@ const Lcture = new Schema(
 
 // Lecture라는 녀석은 새로운 식판을 만들어줄게.
 // 여기에 없는 녀석들은 조회 불가능
+
+export default mongoose.model(`Lecture`, Lecture, `Lecture`);
