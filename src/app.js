@@ -21,10 +21,14 @@ mongoose.connect(
     if (error) {
       console.log("Failed To DB Connect");
     } else {
-      console.log("✅ CONNECT TO DB!");
+      console.log("✅ CUNNECT TO DB!");
     }
   }
 );
+
+app.get("/", (req, res) => {
+  console.log("⭕️ CALLED BY USER");
+});
 
 app.listen(PORT, () => {
   console.log(`${PORT} server start`);
