@@ -11,9 +11,9 @@ app.use(morgan(`dev`));
 
 // connect(); <--- 함수
 mongoose.connect(
-  `mongodb://4laef:fourleaf0309@192.168.219.191:27017/admin`,
+  `mongodb://4leaf:fourleaf0309@192.168.219.191:27017/admin`,
   {
-    dbName: `EDU_1`,
+    adName: `EDU_1`,
     useNewUrlParser: true,
     useCreateIndex: true,
   },
@@ -27,5 +27,5 @@ mongoose.connect(
 );
 
 app.listen(PORT, () => {
-  console.log(`${PORT} Server Start`);
+  console.log(`${PORT} server start`);
 });
