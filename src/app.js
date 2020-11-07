@@ -3,7 +3,7 @@ import morgan from "morgan"; // debugging을 위해 morgan을 import함
 import mongoose from "mongoose"; // mongoose를 통해 데이터를 연결하기 위해 import함
 import Lecture from "./models/Lecture"; // Lecture DB조회를 위해 import함
 
-// 192.168.219.191/admin
+// 192.168.219.124/admin
 
 // webserver 실행 port를 70000번으로 실행하기위해 미리 상수 PORT에 7000을 저장한다.
 const PORT = 7000;
@@ -11,13 +11,14 @@ const PORT = 7000;
 // express를 app에 넣는다.
 const app = express();
 
-// app.js 에게 morgan를 써야한다고 신호를 줌
-// dev <- 키워드
 app.use(morgan(`dev`));
+
+// app.js 에게 pug 써야한다고 신호를 줌
+app.set("view engine", "pug");
 
 // connect(); <--- 함수
 mongoose.connect(
-  `mongodb://4leaf:fourleaf0309@192.168.219.191:27017/admin`,
+  `mongodb://4leaf:fourleaf0309@192.168.219.124:27017/admin`,
   {
     dbName: `EDU_1`,
     useNewUrlParser: true,
@@ -37,11 +38,18 @@ app.get("/", async (req, res) => {
   console.log(" ⭕️ CALLED BY USER!");
 
   const result = await Lecture.find({}, {});
+  // mongoose를 find로 database로 찾는다.
 
-  console.log(result);
+  // res.render("home") <-- pug 연결
+  // 사용자에게 home.pug 를 준다.
+  // lectureList 이름으로 result를 보여준다.
+  return res.render("home", { lectureList: result });
 });
 
 // 설정 끝난 후 Server Start
 app.listen(PORT, () => {
   console.log(`${PORT} server start`);
 });
+
+// home.pug each data in lectureList 설명
+//lectureList가 뭔데? 우리가 database에서 find 한 것을 보여주는데 lectureList는 반복해준다.
