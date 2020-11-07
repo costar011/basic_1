@@ -2,6 +2,7 @@ import express from "express"; // express framework를 사용하기 위해 impor
 import morgan from "morgan"; // debugging을 위해 morgan을 import함
 import mongoose from "mongoose"; // mongoose를 통해 데이터를 연결하기 위해 import함
 import Lecture from "./models/Lecture"; // Lecture DB조회를 위해 import함
+import Snack from "./models/Snack";
 
 // 192.168.219.124/admin
 
@@ -44,6 +45,13 @@ app.get("/", async (req, res) => {
   // 사용자에게 home.pug 를 준다.
   // lectureList 이름으로 result를 보여준다.
   return res.render("home", { lectureList: result });
+});
+
+app.get("/snack", async (req, res) => {
+  const result = await Snack.find({}, {});
+  // mongoose를 find로 database로 찾는다.
+
+  console.log(result);
 });
 
 // 설정 끝난 후 Server Start
