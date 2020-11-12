@@ -15,3 +15,34 @@
   border: 2px solid rgb(180, 180, 180);
   border-radius: 5px;
 }
+
+.wrapper .dataBox .dataBox__top {
+  width: 100%;
+  height: 40%;
+
+  background-color: royalblue;
+}
+
+.wrapper .dataBox .dataBox__bottom {
+  width: 100%;
+  height: 60%;
+
+  background-color: skyblue;
+
+  display: flex;
+  flex-direction: row;
+}
+
+.wrapper .dataBox .dataBox__bottom__left {
+  width: 50%;
+  height: 100%;
+
+  background-color: silver;
+}
+
+.wrapper .dataBox .dataBox__bottom__right {
+  width: 50%;
+  height: 100%;
+
+  background-color: slateblue;
+}
