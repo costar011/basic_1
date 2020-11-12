@@ -58,6 +58,10 @@ app.get("/snack", async (req, res) => {
   console.log(result);
 });
 
+app.get("/lecture", async (req, res) => {
+  res.render("lecture");
+});
+
 // 설정 끝난 후 Server Start
 app.listen(PORT, () => {
   console.log(`${PORT} server start`);
