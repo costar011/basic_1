@@ -59,7 +59,9 @@ app.get("/snack", async (req, res) => {
 });
 
 app.get("/lecture", async (req, res) => {
-  res.render("lecture");
+  const result = await Lecture.find({}, {});
+
+  res.render("lecture", { dataList: result });
 });
 
 // 설정 끝난 후 Server Start

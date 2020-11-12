@@ -3,12 +3,16 @@ html(lang="en")
     head
         meta(charset="UTF-8")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title LECTURE
         link(rel="stylesheet", href="/styles/styles.css")
-        title Lecture
     body
-        .wrapper
-            .dataBox
-                .dataBox__top 
-                .dataBox__bottom 
-                    .dataBox__bottom__left
-                    .dataBox__bottom__right
+        each data in dataList
+            div.wrapper
+                div.dataBox 
+                    div.dataBox__top 
+                        span #{data.name}
+                    div.dataBox__bottom
+                        .dataBox__bottom__left
+                            span #{data.teacher}
+                        .dataBox__bottom__right
+                            span #{data.pay}
