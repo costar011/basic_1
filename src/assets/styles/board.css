@@ -1,0 +1,16 @@
+.Bwrapper {
+  display: flex;
+  flex-direction: row;
+}
+
+.Bwrapper .Bwrapper__left {
+  width: 10%;
+}
+
+.Bwrapper .Bwrapper__content {
+  width: 80%;
+}
+
+.Bwrapper .Bwrapper__right {
+  width: 10%;
+}

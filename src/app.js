@@ -2,7 +2,7 @@ import express from "express"; // express framework를 사용하기 위해 impor
 import morgan from "morgan"; // debugging을 위해 morgan을 import함
 import mongoose from "mongoose"; // mongoose를 통해 데이터를 연결하기 위해 import함
 import Lecture from "./models/Lecture"; // Lecture DB조회를 위해 import함
-import Snack from "./models/Snack";
+import Snack from "./models/Snack"; // Snack DB조회를 위해 import함
 import path from "path"; // path->경로 경로를 추적할 수 있는 것을 impoert함
 
 // 192.168.219.115/admin
@@ -58,10 +58,18 @@ app.get("/snack", async (req, res) => {
   console.log(result);
 });
 
+// res.render("lecture") <-- pug 연결
+// 사용자에게 lecture.pug 를 준다.
 app.get("/lecture", async (req, res) => {
   const result = await Lecture.find({}, {});
 
   res.render("lecture", { dataList: result });
+});
+
+// res.render("board") <-- pug 연결
+// 사용자에게 board.pug 를 준다.
+app.get("/board", (rea, res) => {
+  res.render("board");
 });
 
 // 설정 끝난 후 Server Start
