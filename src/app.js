@@ -13,6 +13,8 @@ const PORT = 7000;
 // express를 app에 넣는다.
 const app = express();
 
+// app에게 morgan를 써야한다고 신호를 준다.
+// dev <- 키워드
 app.use(morgan(`dev`));
 
 // app.js 에게 pug 써야한다고 신호를 줌
