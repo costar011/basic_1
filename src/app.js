@@ -33,24 +33,24 @@ mongoose.connect(
   },
   (error) => {
     if (error) {
-      console.log("Failed To DB Connect");
+      console.log("❌Failed To DB Connect");
     } else {
-      console.log("✅ CUNNECT TO DB!");
+      console.log("✅ CUNNECT TO DB! ✅");
     }
   }
 );
-
 // 사용자가 "/"을 요청하면 async await을 통하여 데이터들을 find로 찾아서 console에 뿌려준다.
 app.get("/", async (req, res) => {
-  console.log(" ⭕️ CALLED BY USER!");
+  console.log("⭕️ CALLED BY USER");
 
   const result = await Lecture.find({}, {});
+
+  return res.render("screens/home", { lectureList: result });
   // mongoose를 find로 database로 찾는다.
 
-  // res.render("home") <-- pug 연결
+  // res.render("screens/home") <-- pug 연결
   // 사용자에게 home.pug 를 준다.
   // lectureList 이름으로 result를 보여준다.
-  return res.render("home", { lectureList: result });
 });
 
 app.get("/snack", async (req, res) => {
@@ -64,13 +64,12 @@ app.get("/snack", async (req, res) => {
 // 사용자에게 lecture.pug 를 준다.
 app.get("/lecture", async (req, res) => {
   const result = await Lecture.find({}, {});
-
   res.render("lecture", { dataList: result });
 });
 
 // res.render("board") <-- pug 연결
 // 사용자에게 board.pug 를 준다.
-app.get("/board", (rea, res) => {
+app.get("/board", (req, res) => {
   res.render("board");
 });
 
@@ -87,10 +86,6 @@ app.get("/test1", (req, res) => {
 // test2 라는 애를 누르게 되면 screnns안에 있는 test2 를 보여준다.
 app.get("/test2", (req, res) => {
   res.render("screens/test2");
-});
-
-app.get("/home", (req, res) => {
-  res.render("views/home");
 });
 
 // 설정 끝난 후 Server Start
