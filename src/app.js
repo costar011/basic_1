@@ -5,7 +5,7 @@ import Lecture from "./models/Lecture"; // Lecture DB조회를 위해 import함
 import Snack from "./models/Snack"; // Snack DB조회를 위해 import함
 import path from "path"; // path->경로 경로를 추적할 수 있는 것을 impoert함
 
-// 192.168.219.149/admin
+// 192.168.219.185/admin
 
 // webserver 실행 port를 70000번으로 실행하기위해 미리 상수 PORT에 7000을 저장한다.
 const PORT = 7000;
@@ -25,7 +25,7 @@ app.use(express.static(path.join(__dirname, "/assets")));
 
 // connect(); <--- 함수
 mongoose.connect(
-  `mongodb://4leaf:fourleaf0309@192.168.219.149:27017/admin`,
+  `mongodb://4leaf:fourleaf0309@192.168.219.185:27017/admin`,
   {
     dbName: `EDU_1`,
     useNewUrlParser: true,
@@ -88,6 +88,11 @@ app.get("/test1", (req, res) => {
 app.get("/test2", (req, res) => {
   res.render("screens/test2");
 });
+
+app.get("/home", (req, res) => {
+  res.render("views/home");
+});
+
 // 설정 끝난 후 Server Start
 app.listen(PORT, () => {
   console.log(`${PORT} server start`);
